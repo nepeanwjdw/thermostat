@@ -25,21 +25,15 @@ function Thermostat () {
     };
   };
 
-  // attempted to add this function but breaks all tests
-  // Thermostat.energyUsage = function(this.temp) {
-  //   var text;
-  //   switch (this.temp) {
-  //     case < 18:
-  //       text =  "low-usage";
-  //       break;
-  //     case < 25:
-  //       text =  "medium-usage";
-  //       break;
-  //     default:
-  //       text =  "high-usage";
-  //   };
-  //   return text
-  // };
+  Thermostat.energyUsage = function() {
+    var text = "high-usage"
+    if (this.temp < 18) {
+      text =  "low-usage";
+    } else if (this.temp < 25) {
+      text = "medium-usage";
+    };
+    return text
+  };
 
 
   Thermostat.togglePowerSaving = function() {

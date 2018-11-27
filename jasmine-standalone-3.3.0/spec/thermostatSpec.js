@@ -20,10 +20,8 @@ describe("Thermostat", function() {
   });
 
   it("has a minimum of 10 degrees", function() {
-      Thermostat.temp = 11;
+      Thermostat.temp = 10;
       Thermostat.down();
-      Thermostat.down();
-      // Thermostat.down().repeat(2);
       expect(Thermostat.temp).toBe(10);
   });
 
@@ -39,22 +37,22 @@ describe("Thermostat", function() {
 
   describe("when low-usage", function() {
     it("energyUsage should return 'low-usage'", function() {
-      Thermostat.temp = 17
-      expect(Thermostat.energyUsage).toBe("low-usage")
+      Thermostat.temp = 17;
+      expect(Thermostat.energyUsage()).toEqual("low-usage");
     })
   });
 
   describe("when medium-usage", function() {
     it("energyUsage should return 'medium-usage'", function() {
-      Thermostat.temp = 24
-      expect(Thermostat.energyUsage).toBe("medium-usage")
+      Thermostat.temp = 24;
+      expect(Thermostat.energyUsage()).toEqual("medium-usage");
     })
   });
 
   describe("when high-usage", function() {
     it("energyUsage should return 'high-usage'", function() {
-      Thermostat.temp = 25
-      expect(Thermostat.energyUsage).toBe("high-usage")
+      Thermostat.temp = 25;
+      expect(Thermostat.energyUsage()).toEqual("high-usage");
     })
   });
 
