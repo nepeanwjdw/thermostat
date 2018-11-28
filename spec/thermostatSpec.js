@@ -6,70 +6,70 @@ describe("Thermostat", function() {
 });
 
   it("starts at 20 degrees", function() {
-    expect(Thermostat.temp).toBe(20);
+    expect(thermostat.temp).toEqual(20);
   });
 
   it("increases temperature with an up function", function() {
-    Thermostat.up();
-    expect(Thermostat.temp).toBe(21);
+    thermostat.up();
+    expect(thermostat.temp).toEqual(21);
   });
 
   it("decreases temperature with a down function", function() {
-    Thermostat.down();
-    expect(Thermostat.temp).toBe(19);
+    thermostat.down();
+    expect(thermostat.temp).toEqual(19);
   });
 
   it("has a minimum of 10 degrees", function() {
-      Thermostat.temp = 10;
-      Thermostat.down();
-      expect(Thermostat.temp).toBe(10);
+      thermostat.temp = 10;
+      thermostat.down();
+      expect(thermostat.temp).toEqual(10);
   });
 
   it("has Power Saving mode on by default", function() {
-    expect(Thermostat.isPowerSaving).toBeTruthy();
+    expect(thermostat.isPowerSaving).toBeTruthy();
   });
 
   it("can reset the temp to 20 with a reset function", function() {
-    Thermostat.temp = 24;
-    Thermostat.reset();
-    expect(Thermostat.temp).toBe(20);
+    thermostat.temp = 24;
+    thermostat.reset();
+    expect(thermostat.temp).toEqual(20);
   });
 
   describe("when low-usage", function() {
     it("energyUsage should return 'low-usage'", function() {
-      Thermostat.temp = 17;
-      expect(Thermostat.energyUsage()).toEqual("low-usage");
+      thermostat.temp = 17;
+      expect(thermostat.energyUsage()).toEqual("low-usage");
     })
   });
 
   describe("when medium-usage", function() {
     it("energyUsage should return 'medium-usage'", function() {
-      Thermostat.temp = 24;
-      expect(Thermostat.energyUsage()).toEqual("medium-usage");
+      thermostat.temp = 24;
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
     })
   });
 
   describe("when high-usage", function() {
     it("energyUsage should return 'high-usage'", function() {
-      Thermostat.temp = 25;
-      expect(Thermostat.energyUsage()).toEqual("high-usage");
+      thermostat.temp = 25;
+      expect(thermostat.energyUsage()).toEqual("high-usage");
     })
   });
 
   describe("when power saving mode is on", function() {
     it("has a maximum temperature 25 degrees", function() {
-      Thermostat.temp = 25;
-      Thermostat.up();
-      expect(Thermostat.temp).toBe(25);
+      thermostat.temp = 25;
+      thermostat.up();
+      expect(thermostat.temp).toEqual(25);
     });
   });
 
   describe("when power saving mode is off", function() {
     it("has a maximum temperature 25 degrees", function() {
-      Thermostat.togglePowerSaving()
-      Thermostat.temp = 32;
-      Thermostat.up();
-      expect(Thermostat.temp).toBe(32);
+      thermostat.togglePowerSaving()
+      thermostat.temp = 32;
+      thermostat.up();
+      expect(thermostat.temp).toEqual(32);
     });
   });
 
